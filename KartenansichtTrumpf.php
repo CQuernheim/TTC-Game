@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="de">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>TTCG – Trumpfkarte</title>
-
-    <link rel="stylesheet" href="trumpf-karte.css">
-</head>
-
-<body>
-
-    <div class="trumpf-card">
+<div class="trumpf-card">
 
     <div class="card-name">
         Max Mustermann
@@ -60,7 +46,3 @@
     </div>
 
 </div>
-
-</body>
-
-</html>
