@@ -1,0 +1,20 @@
+/* Nur für unsere Testumgebung */
+
+body {
+    margin: 0;
+}
+
+.game-area {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.card-container {
+    width: min(82vw, 42vh, 400px);
+}
