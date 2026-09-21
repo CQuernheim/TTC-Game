@@ -1,0 +1,21 @@
+{
+  "name": "PHP + MariaDB Web-Dev",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "remoteUser": "root",
+  "postCreateCommand": "docker-php-ext-install mysqli pdo_mysql",
+  "forwardPorts": [8080, 3306, 8081],
+  "portsAttributes": {
+    "8080": { "label": "PHP Server", "onAutoForward": "notify" },
+    "3306": { "label": "MariaDB", "onAutoForward": "silent" },
+    "8081": { "label": "Adminer", "onAutoForward": "silent" }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.live-server"
+      ]
+    }
+  }
+}
