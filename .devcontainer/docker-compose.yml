@@ -1,0 +1,47 @@
+services:
+  app:
+    image: mcr.microsoft.com/devcontainers/php:8.3
+    volumes:
+      - ../..:/workspaces:cached,Z
+    command: sleep infinity
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - webprog
+
+  db:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: webprog
+      MARIADB_USER: webprog
+      MARIADB_PASSWORD: webprog
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    networks:
+      - webprog
+
+  adminer:
+    image: adminer:latest
+    restart: unless-stopped
+    ports:
+      - "8081:8080"
+    depends_on:
+      - db
+    networks:
+      - webprog
+
+volumes:
+  mariadb-data:
+
+networks:
+  webprog:
+    # explicit subnet needed: host route advertises 10.0.0.0/8, blocking netavark's default 10.x pool
+    ipam:
+      config:
+        - subnet: 172.28.0.0/24
