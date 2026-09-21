@@ -7,8 +7,8 @@
 
     <title>Test – Trumpfkarte</title>
 
-    <link rel="stylesheet" href="css/trumpf-karte.css">
-    <link rel="stylesheet" href="css/test.css">
+    <link rel="stylesheet" href="css\trumpf-karte.css">
+    <link rel="stylesheet" href="css\test.css">
 </head>
 
 <body>
@@ -17,7 +17,7 @@
 
         <div class="card-container">
 
-            <?php include 'KartenAnsicht.php'; ?>
+            <?php include 'KartenAnsichtTrumpf.php'; ?>
 
         </div>
 
