@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Klassenkampf</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+  <div class="dashboard">
+
+    <!-- LINKE SPIELAUSWAHL -->
+    <div class="games">
+
+      <button class="game-button" onclick="selectGame('A')">
+        Spielformat A ·<br>
+        Karten-Quartett
+      </button>
+
+      <button class="game-button" onclick="selectGame('B')">
+        Spielformat B ·<br>
+        Karte gegen Karte
+      </button>
+
+    </div>
+
+
+    <!-- RECHTE SEITE -->
+    <div class="right-side">
+
+      <!-- Bild / Hinweis -->
+      <div class="play-area" id="playArea">
+
+        <div class="choose-game">
+          <p>Stich oder Kampf? <br><br>
+            Wähle links eine Spielart, entweder</p>
+          <p>A) Karten-Trumpf (ganzes Decks gegeneinander) oder</p>
+          <p>B) Kartenkampf 1:1 (Kampf zwischen zwei einzelnen Karten)</p>
+        </div>
+
+      </div>
+
+
+      <!-- Startbutton -->
+      <button
+        class="play-button"
+        id="playButton"
+        onclick="startGame()"
+        style="display: none;"
+      >
+        ▶ SPIEL STARTEN
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    let selectedGame = "";
+
+
+    function selectGame(game) {
+
+      selectedGame = game;
+
+      let image = "";
+      let title = "";
+
+      if (game === "A") {
+        image = "stechen.png";
+        title = "Spielformat A · Karten-Quartett";
+      }
+
+      if (game === "B") {
+        image = "kaempfen.png";
+        title = "Spielformat B · Karte gegen Karte";
+      }
+
+
+      document.getElementById("playArea").innerHTML = `
+        <img
+          class="game-image"
+          src="${image}"
+          alt="${title}"
+        >
+      `;
+
+
+      document.getElementById("playButton").style.display = "block";
+    }
+
+
+    function startGame() {
+
+      if (selectedGame === "") {
+        return;
+      }
+
+      window.location.href = "spiel.html?modus=" + selectedGame;
+
+    }
+
+  </script>
+
+</body>
+
+</html>
