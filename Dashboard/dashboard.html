@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Klassenkampf</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+  <div class="dashboard">
+
+    <!-- Spielauswahl -->
+    <div class="games">
+
+      <button class="game-button" onclick="showGame('stechen.png')">
+        Spielformat A · Karten-Quartett
+      </button>
+
+      <button class="game-button" onclick="showGame('kaempfen.png')">
+        Spielformat B · Karte gegen Karte
+      </button>
+
+    </div>
+
+    <!-- Ausgewählte Spielvariante -->
+    <div class="playfield" id="playfield">
+    </div>
+
+  </div>
+
+
+  <script>
+
+    function showGame(image) {
+
+      document.getElementById("playfield").innerHTML =
+        '<img src="' + image + '" alt="Ausgewählte Spielvariante">';
+
+    }
+
+  </script>
+
+</body>
+
+</html>
