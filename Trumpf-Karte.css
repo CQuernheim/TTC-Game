@@ -38,6 +38,7 @@
     height: 6%;
 
     box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.20);
 
     display: flex;
     align-items: center;
@@ -140,6 +141,7 @@
     width: 100%;
 
     box-sizing: border-box;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
 
     padding: 0 4%;
 
