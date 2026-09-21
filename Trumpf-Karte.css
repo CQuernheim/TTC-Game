@@ -3,7 +3,7 @@
    ======================================== */
 
 .trumpf-card {
-    width: min(82vw, 42vh, 400px);
+    width: 100%;
     aspect-ratio: 1 / 2;
 
     /* Wird später aus der Datenbank gesetzt */
