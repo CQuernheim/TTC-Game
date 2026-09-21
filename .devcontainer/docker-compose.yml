@@ -1,9 +1,9 @@
 services:
   app:
-    image: mcr.microsoft.com/devcontainers/php:8.3
+    build: .
     volumes:
-      - ../..:/workspaces:cached,Z
-    command: sleep infinity
+      - ..:/workspace:cached,Z
+    command: php -S 0.0.0.0:8080 -t /workspace
     ports:
       - "8080:8080"
     depends_on:
