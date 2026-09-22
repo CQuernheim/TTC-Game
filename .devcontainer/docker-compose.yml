@@ -2,7 +2,7 @@ services:
   app:
     build: .
     volumes:
-      - ..:/workspace:cached,Z
+      - ..:/workspace:cached,z
     command: php -S 0.0.0.0:8080 -t /workspace
     ports:
       - "8080:8080"
@@ -13,7 +13,7 @@ services:
 
   db:
     image: mariadb:11
-    restart: unless-stopped
+    # Kein restart: unless-stopped, damit er bei Fehlern nicht in Dauerschleifen gerät
     environment:
       MARIADB_ROOT_PASSWORD: root
       MARIADB_DATABASE: webprog
@@ -21,15 +21,17 @@ services:
       MARIADB_PASSWORD: webprog
     ports:
       - "3306:3306"
+    # Schneller flüchtiger Speicher im RAM (nicht persistent):
+    tmpfs:
+      - /var/lib/mysql
     volumes:
-      - mariadb-data:/var/lib/mysql
-      - ./init-scripts:/docker-entrypoint-initdb.d/init-scripts:ro
+      # Wichtig: direkt in den Ordner mounten, nicht in einen Unterordner
+      - ./init-scripts:/docker-entrypoint-initdb.d:ro
     networks:
       - webprog
 
   adminer:
     image: adminer:latest
-    restart: unless-stopped
     ports:
       - "8081:8080"
     depends_on:
@@ -37,12 +39,8 @@ services:
     networks:
       - webprog
 
-volumes:
-  mariadb-data:
-
 networks:
   webprog:
-    # explicit subnet needed: host route advertises 10.0.0.0/8, blocking netavark's default 10.x pool
     ipam:
       config:
         - subnet: 172.28.0.0/24
