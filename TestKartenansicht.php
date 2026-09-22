@@ -17,7 +17,7 @@
 
         <div class="card-container">
 
-            <?php include 'KartenAnsichtTrumpf.php'; ?>
+            <?php include 'components/KartenAnsichtTrumpf.php'; ?>
 
         </div>
 

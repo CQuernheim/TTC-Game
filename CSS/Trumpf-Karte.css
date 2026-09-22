@@ -234,3 +234,32 @@
 
     overflow: auto;
 }
+
+.effect-button {
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+
+.effect-short {
+    display: none;
+}
+
+
+/* Smartphone */
+
+@media (max-width: 600px) {
+
+    .effect-full {
+        display: none;
+    }
+
+    .effect-short {
+        display: block;
+
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+}

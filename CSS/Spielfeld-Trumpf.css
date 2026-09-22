@@ -182,3 +182,169 @@ body {
 
     cursor: not-allowed;
 }
+
+/* ========================================
+   SMARTPHONE
+   ======================================== */
+
+@media (max-width: 600px) {
+
+    .game-board {
+        padding: 12px;
+        gap: 12px;
+    }
+
+
+    /* Spielmodus */
+
+    .game-header {
+        width: 100%;
+        gap: 25px;
+
+        padding: 10px;
+
+        font-size: 0.9rem;
+    }
+
+
+    /* Spieler nicht mehr absolut positionieren */
+
+    .players {
+        position: static;
+
+        width: 100%;
+
+        display: flex;
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        gap: 8px;
+    }
+
+    .player {
+        flex: 1;
+
+        padding: 6px;
+
+        text-align: center;
+
+        font-size: 0.8rem;
+    }
+
+    .player-label {
+        display: block;
+    }
+
+    .player-name {
+        display: block;
+
+        margin-left: 0;
+    }
+
+
+    /* Karten */
+
+    .card-table {
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        gap: 10px;
+    }
+
+    .card-position {
+        width: min(43vw, 180px);
+    }
+
+
+    /* Bestätigungsbutton */
+
+    .confirm-button {
+        min-width: 0;
+        width: 80%;
+
+        padding: 10px 15px;
+
+        font-size: 0.85rem;
+    }
+
+}
+/* ========================================
+   EFFEKT-POPUP
+   ======================================== */
+
+.effect-overlay {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background-color: rgba(0, 0, 0, 0.6);
+
+    z-index: 1000;
+}
+
+
+/* Wird durch JavaScript beim Öffnen hinzugefügt */
+.effect-overlay.visible {
+    display: flex;
+}
+
+
+.effect-popup {
+    width: min(90vw, 400px);
+
+    padding: 20px;
+
+    background-color: white;
+
+    border: 3px solid #222;
+    border-radius: 15px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+
+.effect-popup-title {
+    margin-bottom: 15px;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+.effect-popup p {
+    margin: 0;
+
+    line-height: 1.5;
+}
+
+
+.effect-close-button {
+    width: 100%;
+
+    margin-top: 15px;
+    padding: 10px;
+
+    border: 2px solid #222;
+    border-radius: 8px;
+
+    background-color: #eeeeee;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.effect-close-button:hover {
+    background-color: #dddddd;
+}
