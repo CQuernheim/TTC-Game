@@ -273,3 +273,78 @@ body {
     }
 
 }
+/* ========================================
+   EFFEKT-POPUP
+   ======================================== */
+
+.effect-overlay {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background-color: rgba(0, 0, 0, 0.6);
+
+    z-index: 1000;
+}
+
+
+/* Wird durch JavaScript beim Öffnen hinzugefügt */
+.effect-overlay.visible {
+    display: flex;
+}
+
+
+.effect-popup {
+    width: min(90vw, 400px);
+
+    padding: 20px;
+
+    background-color: white;
+
+    border: 3px solid #222;
+    border-radius: 15px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+
+.effect-popup-title {
+    margin-bottom: 15px;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+.effect-popup p {
+    margin: 0;
+
+    line-height: 1.5;
+}
+
+
+.effect-close-button {
+    width: 100%;
+
+    margin-top: 15px;
+    padding: 10px;
+
+    border: 2px solid #222;
+    border-radius: 8px;
+
+    background-color: #eeeeee;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.effect-close-button:hover {
+    background-color: #dddddd;
+}
