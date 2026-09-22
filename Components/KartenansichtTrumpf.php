@@ -14,27 +14,43 @@
 
     <div class="card-properties">
 
-        <button class="property-button" type="button">
-            <span class="property-name">Humor</span>
-            <span class="property-value">80</span>
-        </button>
+    <button
+        class="property-button"
+        type="button"
+        data-property="EXP"
+    >
+        <span class="property-name">Erklärfähigkeit</span>
+        <span class="property-value">80</span>
+    </button>
 
-        <button class="property-button" type="button">
-            <span class="property-name">Strenge</span>
-            <span class="property-value">65</span>
-        </button>
+    <button
+        class="property-button"
+        type="button"
+        data-property="QWT"
+    >
+        <span class="property-name">Schlagfertigkeit</span>
+        <span class="property-value">65</span>
+    </button>
 
-        <button class="property-button" type="button">
-            <span class="property-name">Kaffeekonsum</span>
-            <span class="property-value">90</span>
-        </button>
+    <button
+        class="property-button"
+        type="button"
+        data-property="ACC"
+    >
+        <span class="property-name">Korrigierpower</span>
+        <span class="property-value">90</span>
+    </button>
 
-        <button class="property-button" type="button">
-            <span class="property-name">Pünktlichkeit</span>
-            <span class="property-value">45</span>
-        </button>
+    <button
+        class="property-button"
+        type="button"
+        data-property="COF"
+    >
+        <span class="property-name">Kaffekonsum</span>
+        <span class="property-value">45</span>
+    </button>
 
-    </div>
+</div>
 
     <div class="section-title">
         Effekt
