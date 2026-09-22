@@ -1,46 +1,56 @@
+version: '3.8'
+
 services:
-  app:
-    build: .
+  php:
+    image: php:8.2-apache
+    container_name: php_server
+    ports:
+      - "80:80"
     volumes:
-      - ..:/workspace:cached,z
-    command: php -S 0.0.0.0:8080 -t /workspace
+      - ./src:/var/www/html
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=rootpassword
+      - DB_NAME=myapp
+    networks:
+      - app_network
+
+  db:
+    image: mariadb:latest
+    container_name: mariadb_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: myapp
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: apppassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/mysql
+    networks:
+      - app_network
+
+  adminer:
+    image: adminer:latest
+    container_name: adminer_ui
+    restart: unless-stopped
     ports:
       - "8080:8080"
     depends_on:
       - db
-    networks:
-      - webprog
-
-  db:
-    image: mariadb:11
-    # Kein restart: unless-stopped, damit er bei Fehlern nicht in Dauerschleifen gerät
     environment:
-      MARIADB_ROOT_PASSWORD: root
-      MARIADB_DATABASE: webprog
-      MARIADB_USER: webprog
-      MARIADB_PASSWORD: webprog
-    ports:
-      - "3306:3306"
-    # Schneller flüchtiger Speicher im RAM (nicht persistent):
-    tmpfs:
-      - /var/lib/mysql
-    volumes:
-      # Wichtig: direkt in den Ordner mounten, nicht in einen Unterordner
-      - ./init-scripts:/docker-entrypoint-initdb.d:ro
+      ADMINER_DEFAULT_SERVER: db
     networks:
-      - webprog
+      - app_network
 
-  adminer:
-    image: adminer:latest
-    ports:
-      - "8081:8080"
-    depends_on:
-      - db
-    networks:
-      - webprog
+volumes:
+  db_data:
 
 networks:
-  webprog:
-    ipam:
-      config:
-        - subnet: 172.28.0.0/24
+  app_network:
+    driver: bridge
