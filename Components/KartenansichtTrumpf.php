@@ -40,9 +40,15 @@
         Effekt
     </div>
 
-    <div class="card-text">
+    
+        <button class="card-text effect-button" type="button">
+    <span class="effect-short">...</span>
+
+    <span class="effect-full">
         Wenn diese Karte ausgespielt wird, steigt der Kaffeekonsum
         aller Lehrkräfte im Lehrerzimmer erheblich.
-    </div>
+    </span>
+</button>
+
 
 </div>
