@@ -76,6 +76,30 @@
 
     </main>
 
+    <div class="effect-overlay" id="effectOverlay">
+
+    <div class="effect-popup">
+
+        <div class="effect-popup-title">
+            Effekt
+        </div>
+
+        <p id="effectPopupText"></p>
+
+        <button
+            class="effect-close-button"
+            id="effectCloseButton"
+            type="button">
+            Schließen
+        </button>
+
+    </div>
+
+</div>
+
+<script src="js/spielfeldTrumpf.js"></script>
+
+
 </body>
 
 </html>
