@@ -1,0 +1,184 @@
+/* ========================================
+   SPIELFELD
+   ======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-color: #eeeeee;
+}
+
+
+.game-board {
+    width: 100vw;
+    min-height: 100vh;
+
+    padding: 2vh 3vw;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 2vh;
+
+    background-color: #4f7d4f;
+}
+
+
+/* ========================================
+   SPIELMODUS
+   ======================================== */
+
+.game-header {
+    width: min(90%, 700px);
+
+    margin: 0 auto;
+
+    padding: 10px 20px;
+
+    display: flex;
+    justify-content: center;
+
+    gap: 30px;
+
+    background-color: rgba(255, 255, 255, 0.9);
+
+    border: 2px solid #222;
+    border-radius: 10px;
+
+    font-weight: bold;
+}
+
+
+.active-game-mode {
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   SPIELER
+   ======================================== */
+
+.players {
+    position: absolute;
+
+    top: 100px;
+    left: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.player {
+    padding: 8px 12px;
+
+    background-color: rgba(255, 255, 255, 0.9);
+
+    border: 2px solid #222;
+    border-radius: 8px;
+}
+
+
+.player-label {
+    font-weight: bold;
+}
+
+
+.player-name {
+    margin-left: 8px;
+}
+
+
+/* ========================================
+   KARTENBEREICH
+   ======================================== */
+
+.card-table {
+    flex: 1;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: clamp(20px, 8vw, 120px);
+}
+
+
+.card-position {
+    width: min(28vw, 32vh, 300px);
+}
+
+
+/* ========================================
+   GEGNERKARTE / PLATZHALTER
+   ======================================== */
+
+.card-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 2;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border: 3px dashed rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    font-weight: bold;
+}
+
+
+/* ========================================
+   BUTTON
+   ======================================== */
+
+.game-actions {
+    display: flex;
+
+    justify-content: center;
+
+    padding-bottom: 2vh;
+}
+
+
+.confirm-button {
+    min-width: 220px;
+
+    padding: 12px 25px;
+
+    border: 2px solid #222;
+    border-radius: 20px;
+
+    background-color: white;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.confirm-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+
+.confirm-button:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+}
