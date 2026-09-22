@@ -68,3 +68,77 @@ propertyButtons.forEach(function (button) {
     });
 
 });
+
+/* ========================================
+   AUSWAHL BESTÄTIGEN
+   ======================================== */
+
+confirmButton.addEventListener("click", function () {
+
+    // Sicherheit:
+    // Ohne ausgewählte Eigenschaft nichts machen
+    if (selectedProperty === null) {
+        return;
+    }
+
+
+    console.log(
+        "Bestätigte Eigenschaft:",
+        selectedProperty
+    );
+
+
+    /*
+     * SPÄTER:
+     * Hier wird die Auswahl an die
+     * PHP-Spiellogik geschickt.
+     */
+
+
+    /*
+    fetch("controller/trumpf-auswahl.php", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+            property: selectedProperty
+        })
+
+    })
+    .then(function (response) {
+
+        if (!response.ok) {
+            throw new Error("Fehler bei der Spiellogik");
+        }
+
+        return response.json();
+
+    })
+    .then(function (data) {
+
+        console.log(
+            "Antwort der Spiellogik:",
+            data
+        );
+
+        // Später:
+        // Gegnerkarte anzeigen
+        // Karte umdrehen
+        // Werte vergleichen / Ergebnis anzeigen
+
+    })
+    .catch(function (error) {
+
+        console.error(
+            "Fehler beim Senden der Auswahl:",
+            error
+        );
+
+    });
+    */
+
+});
