@@ -4,62 +4,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Klassenkampf – Ergebnis</title>
+
   <link rel="stylesheet" href="dashboard.css">
 </head>
 
 <body>
 
-  <div class="result-page">
+  <main class="result-page">
 
-    <div class="result-box">
+    <section class="result-box">
 
-      <h1 id="result-title">
+      <div class="result-mode" id="resultMode">
         Spiel beendet
-      </h1>
+      </div>
 
-      <div class="winner">
-        🏆
-        <span id="winner-text">Gewinner</span>
+      <h1>🏆 Gewinner 🏆</h1>
+
+      <div class="winner" id="winner">
+        Spieler 1
       </div>
 
       <div class="score">
-        <div>
-          <span id="player1-name">Spieler 1</span>
-          <strong id="player1-score">0</strong>
+
+        <div class="score-player">
+          <span>Spieler 1</span>
+          <strong id="score1">10</strong>
         </div>
 
         <div class="versus">
-          :
+          VS
         </div>
 
-        <div>
-          <span id="player2-name">Spieler 2</span>
-          <strong id="player2-score">0</strong>
+        <div class="score-player">
+          <span>Spieler 2</span>
+          <strong id="score2">8</strong>
         </div>
+
       </div>
 
       <div class="result-actions">
 
         <button
           class="result-button again"
-          onclick="playAgain()"
-        >
+          onclick="playAgain()">
           🔄 NOCHMAL SPIELEN
         </button>
 
         <button
           class="result-button menu"
-          onclick="backToMenu()"
-        >
+          onclick="goToMenu()">
           ⌂ ZUR SPIELAUSWAHL
         </button>
 
       </div>
 
-    </div>
+    </section>
 
-  </div>
+  </main>
 
 
   <script>
@@ -69,66 +72,37 @@
     const modus = params.get("modus");
 
 
-    /* Spielform anzeigen */
-
     if (modus === "A") {
 
-      document.getElementById("result-title").textContent =
-        "Karten-Trumpf – Ergebnis";
+      document.getElementById("resultMode").textContent =
+        "Spiel beendet · Karten-Trumpf";
 
     }
 
     if (modus === "B") {
 
-      document.getElementById("result-title").textContent =
-        "Kartenkampf 1:1 – Ergebnis";
+      document.getElementById("resultMode").textContent =
+        "Spiel beendet · Kartenkampf 1:1";
 
     }
 
-
-    /* Diese Werte werden später vom eigentlichen Spiel übergeben */
-
-    const winner = params.get("winner");
-    const score1 = params.get("score1");
-    const score2 = params.get("score2");
-
-
-    if (winner) {
-      document.getElementById("winner-text").textContent =
-        winner;
-    }
-
-    if (score1) {
-      document.getElementById("player1-score").textContent =
-        score1;
-    }
-
-    if (score2) {
-      document.getElementById("player2-score").textContent =
-        score2;
-    }
-
-
-    /* Nochmal spielen */
 
     function playAgain() {
 
-      if (modus === "A" || modus === "B") {
+      if (modus === "A") {
+        window.location.href = "../SpielfeldTrumpf.php";
+      }
 
-        window.location.href =
-          "spiel.html?modus=" + modus;
-
+      if (modus === "B") {
+        window.location.href = "../SpielfeldKampf.php";
       }
 
     }
 
 
-    /* Zurück zur Auswahl */
+    function goToMenu() {
 
-    function backToMenu() {
-
-      window.location.href =
-        "dashboard.html";
+      window.location.href = "dashboard.html";
 
     }
 
