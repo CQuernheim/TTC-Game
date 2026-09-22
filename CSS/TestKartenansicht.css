@@ -11,10 +11,10 @@ body {
     justify-content: center;
     align-items: center;
 
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
 }
 
 .card-container {
-    width: min(82vw, 42vh, 400px);
+    width: min(92vw, 46vh, 400px);
 }
