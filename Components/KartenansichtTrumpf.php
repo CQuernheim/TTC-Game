@@ -1,7 +1,7 @@
 <div class="trumpf-card">
 
     <div class="card-name">
-        Max Mustermann
+        Max Mustermann <!-- <?= htmlspecialchars($karte['card_name']) ?> -->
     </div>
 
     <div class="card-image">
