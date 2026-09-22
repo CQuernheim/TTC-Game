@@ -97,7 +97,7 @@
 
 </div>
 
-<script src="js/spielfeldTrumpf.js"></script>
+<script src="js/SpielfeldTrumpf.js"></script>
 
 
 </body>
